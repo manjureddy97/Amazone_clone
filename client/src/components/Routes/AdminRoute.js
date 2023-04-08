@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../Spinner";
 
-const AdminRoute = ({ children }) => {
+const AdminRoute = () => {
   const { ok, setOk } = useState(false);
   const { auth, setAuth } = useAuth();
 
