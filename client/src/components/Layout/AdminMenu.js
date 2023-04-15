@@ -7,25 +7,25 @@ const AdminMenu = () => {
         <div className="list-group dashboard-menu">
           <h4>Admin Panel</h4>
           <NavLink
-            to="/dashboard/admin/create-category"
+            to="/create-category"
             className="list-group-item list-group-item-action"
           >
             Create Category
           </NavLink>
           <NavLink
-            to="/dashboard/admin/create-product"
+            to="/create-product"
             className="list-group-item list-group-item-action"
           >
             Create Product
           </NavLink>
           <NavLink
-            to="/dashboard/admin/products"
+            to="/products"
             className="list-group-item list-group-item-action"
           >
             Products
           </NavLink>
           <NavLink
-            to="/dashboard/admin/orders"
+            to="/orders"
             className="list-group-item list-group-item-action"
           >
             Orders

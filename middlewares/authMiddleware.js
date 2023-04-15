@@ -16,7 +16,7 @@ export const requireSignIn = async (req, res, next) => {
   }
 };
 
-// amin access
+//admin acceess
 export const isAdmin = async (req, res, next) => {
   try {
     const user = await userModal.findById(req.user._id);
@@ -25,14 +25,15 @@ export const isAdmin = async (req, res, next) => {
         success: false,
         message: "UnAuthorized Access",
       });
+    } else {
+      next();
     }
-    next();
   } catch (error) {
     console.log(error);
     res.status(401).send({
       success: false,
       error,
-      message: "Error in admin middleware",
+      message: "Error in admin middelware",
     });
   }
 };
