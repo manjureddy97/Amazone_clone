@@ -30,7 +30,6 @@ const Login = () => {
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state || "/");
-        // console.log(".......", location.state);
       } else {
         toast.error(res.data.message);
       }
@@ -40,7 +39,7 @@ const Login = () => {
     }
   };
   return (
-    <Layout title="Register - Puja Services">
+    <Layout title="Register - Ecommer App">
       <div className="form-container " style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
           <h4 className="title">LOGIN FORM</h4>
