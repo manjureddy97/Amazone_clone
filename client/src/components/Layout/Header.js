@@ -37,7 +37,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-              🛒 Ecommerce App
+              🔱 Prakasha Mandir
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
@@ -46,18 +46,23 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/" className="nav-link ">
+                  About Us
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   to={"/categories"}
                   data-bs-toggle="dropdown"
                 >
-                  Categories
+                  Our Services
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to={"/categories"}>
-                      All Categories
+                      All Services
                     </Link>
                   </li>
                   {categories?.map((c) => (
@@ -71,6 +76,27 @@ const Header = () => {
                     </li>
                   ))}
                 </ul>
+              </li>
+
+              <li className="nav-item">
+                <NavLink to="/" className="nav-link ">
+                  Pujas
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/" className="nav-link ">
+                  Festivals
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/" className="nav-link ">
+                  Blogs
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/" className="nav-link ">
+                  Contact Us
+                </NavLink>
               </li>
 
               {!auth?.user ? (

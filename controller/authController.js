@@ -1,4 +1,4 @@
-import userModal from "../models/userModal.js";
+import userModal from "../models/userModel.js";
 
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
@@ -75,6 +75,7 @@ export const loginController = async (req, res) => {
     //check user
     // const hashedPassword = await hashPassword(password);
     const user = await userModal.findOne({ email });
+    console.log("user999", user);
 
     if (!user) {
       return res.status(404).send({
