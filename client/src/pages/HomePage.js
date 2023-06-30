@@ -8,11 +8,6 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
-import "../App.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Product from "../components/Product";
-import { productData, responsive } from "../components/data";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -24,33 +19,6 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  const product = productData.map((item) => (
-    <Product
-      name={item.name}
-      url={item.imageurl}
-      price={item.price}
-      description={item.description}
-    />
-  ));
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
-    },
-  };
 
   //get all cat
   const getAllCategory = async () => {
@@ -141,36 +109,13 @@ const HomePage = () => {
   return (
     <Layout title={"ALl Products - Best offers "}>
       {/* banner image */}
-      {/*<img
+      <img
         src="/images/banner.png"
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
-  /> */}
-      <div> </div>
-
-      <Carousel
-        responsive={responsive}
-        style={{ marginTop: "10" }}
-        showDots={true}
-        autoPlay={true}
-        swipeable={false}
-        draggable={false}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlaySpeed={3000}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-10-px"
-      >
-        {product}
-      </Carousel>
+      />
       {/* banner image */}
-      {console.log("categories", categories)}
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -184,7 +129,6 @@ const HomePage = () => {
               </Checkbox>
             ))}
           </div>
-
           {/* price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
