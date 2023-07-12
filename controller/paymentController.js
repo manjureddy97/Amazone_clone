@@ -9,9 +9,14 @@ export default async (req, res) => {
             return res.status(401).send({ message: "Received incomplete body", status: false });
         } else {
             var razorpayInstance = new Razorpay({
+                
                 key_id: process.env.RAZORPAY_ID,
                 key_secret:process.env.RAZORPAY_SECRET,
+                
             });
+            console.log('process.env.RAZORPAY_ID===',process.env.RAZORPAY_ID)
+            console.log('process.env.RAZORPAY_SECRET',process.env.RAZORPAY_SECRET)
+
             const paymentObject = await productModel.findById(product_id);
 
             const amount = paymentObject.price * 100 * (quantity ?? 1)
@@ -21,6 +26,7 @@ export default async (req, res) => {
                 receipt: receipt_email
             };
             razorpayInstance.orders.create(options, (err, order) => {
+                console.log("ERROR===",err);
                 if (err) {
                     return res.status(400).send({ success: false, msg: 'Something went wrong!' });
                 } else {
@@ -29,7 +35,7 @@ export default async (req, res) => {
                         msg: 'Order Created',
                         order_id: order.id,
                         amount: amount,
-                        key_id: RAZORPAY_ID_KEY,
+                        key_id: process.env.RAZORPAY_ID_KEY,
                         email: receipt_email
                     });
                 }
